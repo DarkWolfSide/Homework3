@@ -18,6 +18,25 @@ fun main(args: Array<String>) {
         println("$startPoint - $endPoint")
         currentPoint = endPoint
     }
+//  Task 174
+    val N2 = 5
+    var Xk = 2.0
+    print("Xk0 = $Xk ")
+    for(i in 1..N2){
+        Xk = 2 + 1/Xk
+        print("Xk$i = $Xk ")
+    }
+    println()
+
+//  Task 175
+    val N3 = 7
+    var Xr = 1.0
+    print("Xk0 = $Xr ")
+    for(i in 1..N3){
+        Xr = (Xr+1)/i
+        print("Xk$i = $Xr ")
+    }
+    println()
 
 //  Task 176
     val fib = 10
@@ -25,6 +44,12 @@ fun main(args: Array<String>) {
     for (i in 0..fib) {
         println(fibonacci(i))
     }
+//  Task 177
+    val Nr = 10.0 // Number of elements to print
+    printSequence(Nr)
+
+//  Task178
+
 
 //  Task 179
     val N1 = 27
@@ -93,6 +118,27 @@ fun main(args: Array<String>) {
 //  Task 189
     val someNum = 35
     println("Greather Fibonacci number is: ${FibonacciNumber(someNum,0,1)}")
+}
+
+fun printSequenceRecursive(N: Double, xMinus2: Double, xMinus1: Double) {
+    val current = (xMinus2 + 2 * xMinus1) / 3
+    println(current) // Print the current element
+
+    if (N > 1) {
+        printSequenceRecursive(N - 1, xMinus1, current)
+    }
+}
+
+fun printSequence(N: Double) {
+    val xMinus2: Double = 1.0
+    val xMinus1: Double = 2.0
+
+    println(xMinus2) // Print the first element
+    println(xMinus1) // Print the second element
+
+    if (N > 2) {
+        printSequenceRecursive(N - 2, xMinus2, xMinus1)
+    }
 }
 
 fun isFibonacciNumber(number: Int, a: Int, b: Int): Boolean {
